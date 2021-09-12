@@ -1,12 +1,26 @@
-from flask import Flask
-
+from flask import Flask, render_template, request
+import pickle
 
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def index():
-    return "<h1> This is the index page </h1>"
+    if request.method == 'GET':
+        return render_template('index.html')
+    else:
+        age = request.form['age']
+        bedrooms = request.form['bedrooms']
+        area = request.form['area']
+
+        print(age)
+        print(bedrooms)
+        print(area)
+
+        with open(f'model/model.pkl', 'rb') as f:
+            model = pickle.load(f)
+        result = model.predict([[area, bedrooms, age]])
+        return render_template('index.html', result=result)
 
 
 if __name__ == '__main__':

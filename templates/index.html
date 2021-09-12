@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housing price prediction</title>
+</head>
+<body>
+    <nav>Housing Price prediction </nav>
+    <main>
+        <div class="form">
+            <form method="post" action="/">
+                <label for = "age">
+                    Age
+                </label>
+                <input type="number" name="age" id="age" placeholder="Enter age"/>
+
+                <label for = "area">
+                    Area
+                </label>
+                <input type="number" name="area" id="area" placeholder="Enter area in sq.meters"/>
+
+                <label for = "bedrooms">
+                    Bedrooms
+                </label>
+                <input type="number" name="bedrooms" id="bedrooms" placeholder="Enter no of bedrooms"/>
+                <input type="submit" name ="Predict"/>
+            </form>
+            {% if result %}
+              <h4> {{result[0]}}</h4>
+            {% endif %}
+        </div>
+    </main>
+</body>
+</html>
