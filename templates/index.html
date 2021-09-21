@@ -7,11 +7,17 @@
     <title>Housing price prediction</title>
     <style>
         body {
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
+            background-size: cover;
+            background-image: url("/static/images/bg.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow-y: hidden;
         }
         .form-div{
-            height: 100%;
+
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content:center;
@@ -21,8 +27,10 @@
         .form{
             display: flex;
             flex-direction: column;
-            padding: 20px;
+            padding: 50px;
             width: 50%;
+            background-color: #f5f5f5;
+            box-shadow: -5px 3px 3px 0px rgb(186, 224, 160) !important;
         }
         .form-label{
             font-weight: 800px;
@@ -40,13 +48,25 @@
         .form-input:hover{
             border: 2px solid #000000;
         }
+        .form-button{
+            background-color: #05a30a;
+            color: #fff;
+            padding: 10px 15px;
+            width : 50%;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            margin: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
 </head>
 <body>
-    <nav>Housing Price prediction </nav>
     <main>
         <div class="form-div">
             <form class="form" method="post" action="/">
+                <h4 style="color:#05a30a;font-size:1.5rem;text-align:center ;">Housing Price prediction </h4>
                 <label class="form-label" for = "age">
                     Age
                 </label>
@@ -62,13 +82,12 @@
                 </label>
                 <input class="form-input" type="number" name="bedrooms" id="bedrooms" placeholder="Enter no of bedrooms"/>
                 <input class="form-button" type="submit" name ="Predict"/>
+                
+                {% if result %}
+                    <h4>Price : {{result}}$</h4>
+                    {% endif %}    
+                    
             </form>
-            <div>
-            {% if result %}
-                <h4> {{result[0]}}</h4>
-              {% endif %}    
-            <div>
-
         </div>
        
     </main>

@@ -20,6 +20,7 @@ def index():
         with open(f'model/model.pkl', 'rb') as f:
             model = pickle.load(f)
         result = model.predict([[area, bedrooms, age]])
+        result = result[0].__ceil__()
         return render_template('index.html', result=result)
 
 
