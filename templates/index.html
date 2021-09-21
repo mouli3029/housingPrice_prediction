@@ -5,32 +5,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Housing price prediction</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+        }
+        .form-div{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content:center;
+            align-items:center;
+            align-content: center;
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            width: 50%;
+        }
+        .form-label{
+            font-weight: 800px;
+            letter-spacing: .1rem;
+            padding: 5px;
+        }
+
+        .form-input{
+            border: 1px solid #000000;
+            border-radius: 10px;
+            width : 100%;
+            padding: 10px 5px;
+            outline: none;
+        }
+        .form-input:hover{
+            border: 2px solid #000000;
+        }
+    </style>
 </head>
 <body>
     <nav>Housing Price prediction </nav>
     <main>
-        <div class="form">
-            <form method="post" action="/">
-                <label for = "age">
+        <div class="form-div">
+            <form class="form" method="post" action="/">
+                <label class="form-label" for = "age">
                     Age
                 </label>
-                <input type="number" name="age" id="age" placeholder="Enter age"/>
+                <input class="form-input" type="number" name="age" id="age" placeholder="Enter age"/>
 
-                <label for = "area">
+                <label class="form-label" for = "area">
                     Area
                 </label>
-                <input type="number" name="area" id="area" placeholder="Enter area in sq.meters"/>
+                <input class="form-input" type="number" name="area" id="area" placeholder="Enter area in sq.meters"/>
 
-                <label for = "bedrooms">
+                <label class="form-label" for = "bedrooms">
                     Bedrooms
                 </label>
-                <input type="number" name="bedrooms" id="bedrooms" placeholder="Enter no of bedrooms"/>
-                <input type="submit" name ="Predict"/>
+                <input class="form-input" type="number" name="bedrooms" id="bedrooms" placeholder="Enter no of bedrooms"/>
+                <input class="form-button" type="submit" name ="Predict"/>
             </form>
+            <div>
             {% if result %}
-              <h4> {{result[0]}}</h4>
-            {% endif %}
+                <h4> {{result[0]}}</h4>
+              {% endif %}    
+            <div>
+
         </div>
+       
     </main>
 </body>
 </html>
